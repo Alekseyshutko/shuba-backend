@@ -60,12 +60,12 @@ class User(AbstractBaseUser, PermissionsMixin):
             user.save()
         return user
 
-    def send_register_mail(self):
-        # send_register_email_task.delay({
-        #     "username": self.username,
-        #     "register_token": self.register_token
-        # })
-        send_register_email_task.delay(self.id)
+    # def send_register_mail(self):
+    #     # send_register_email_task.delay({
+    #     #     "username": self.username,
+    #     #     "register_token": self.register_token
+    #     # })
+    #     send_register_email_task.delay(self.id)
 
     def __str__(self):
         return self.email

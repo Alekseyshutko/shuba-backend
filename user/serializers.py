@@ -42,7 +42,7 @@ class RegistrationSerializer(UserSerializer):
     def create(self, validated_data):
         validated_data.pop("password_submit")
         user = User.objects.create_user(**validated_data )
-        user.send_register_mail()
+        # user.send_register_mail()
         return user
 
 
