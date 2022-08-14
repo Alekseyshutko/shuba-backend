@@ -1,7 +1,11 @@
+from rest_framework.response import Response
+
 from .models import Order, OrderComments, OrderPhotos, SpecialityOrder
-from rest_framework import viewsets, permissions
-from .serializers import OrderSerializer, OrderCommentsSerializer, OrderPhotosSerializer, SpecialityOrderSerializer
+from rest_framework import viewsets, permissions, generics
+from .serializers import OrderSerializer, OrderCommentsSerializer, OrderPhotosSerializer, SpecialityOrderSerializer, \
+    DeleteOrderSerializer
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.permissions import IsAuthenticated
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -10,7 +14,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['speciality']
-    
+
     # def create(self, request, *args, **kwargs):
     #     # import pdb
     #     # pdb.set_trace()
@@ -21,7 +25,6 @@ class SpecialityOrderViewSet(viewsets.ModelViewSet):
     queryset = SpecialityOrder.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = SpecialityOrderSerializer
-
 
 
 class OrderCommentsViewSet(viewsets.ModelViewSet):
@@ -36,5 +39,7 @@ class OrderPhotosViewSet(viewsets.ModelViewSet):
     serializer_class = OrderPhotosSerializer
 
 
-
-
+class OrderAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [permissions.AllowAny]

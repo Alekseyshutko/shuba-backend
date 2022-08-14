@@ -44,3 +44,9 @@ class OrderPhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderPhotos
         fields = '__all__'
+
+
+class DeleteOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = "__all__"

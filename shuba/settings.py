@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'shuba.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DB_NAME = env("DB_NAME", default="shubanwwww")
+DB_NAME = env("DB_NAME", default="shuba_finish")
 DB_USER = env("DB_USER", default="shuba")
 DB_PASSWORD = env("DB_PASSWORD", default="5555165")
 DB_HOST = env("DB_HOST", default="localhost")
