@@ -1,9 +1,12 @@
 from django.contrib import admin
+from django.template.defaulttags import url
 from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+from shuba import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +16,8 @@ urlpatterns = [
     path('order/', include('order.urls')),
     path('api/', include('user.urls')),
     path('contact/', include('contact.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 
 
 ]
+
