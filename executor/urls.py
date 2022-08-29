@@ -8,6 +8,6 @@ router.register('api/speciality', SpecialityViewSet, 'speciality')
 router.register('api/executor_comments', ExecutorCommentsViewSet, 'executor_comments')
 
 
-urlpatterns = [path('api/detailexecutor', ExecutorAPIDetailView.as_view())]
+urlpatterns = [path('api/detailexecutor/<int:pk>/', ExecutorAPIDetailView.as_view())]
 urlpatterns += router.urls
 

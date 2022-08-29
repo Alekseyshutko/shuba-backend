@@ -28,12 +28,12 @@ class ExecutorCommentsViewSet(viewsets.ModelViewSet):
 class ExecutorAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Executor.objects.all()
     serializer_class = ExecutorSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsExecutorOrReadOnly]
-
-
-class SpecialityAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Speciality.objects.all()
     permission_classes = [permissions.AllowAny]
-    serializer_class = SpecialitySerializer
+
+
+# class SpecialityAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Speciality.objects.all()
+#     permission_classes = [permissions.AllowAny]
+#     serializer_class = SpecialitySerializer
 
 
