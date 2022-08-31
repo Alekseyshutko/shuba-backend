@@ -28,3 +28,8 @@ class ExecutorCommentsSerializer(serializers.ModelSerializer):
         model = ExecutorComments
         fields = '__all__'
 
+
+class DeleteExecutorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Executor
+        fields = "__all__"
